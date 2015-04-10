@@ -3,5 +3,57 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Controller Actions</h2>
 
+<br/>
+
+<p>The base class for returned values is <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult(v=vs.118).aspx">ActionResult</a>. For MVC 5, it provides <strong>15</strong>  subclasses which provide specific actions for the controllers: </p>
+
+<h3>Simple Actions</h3>
+<hr/>
+<ul>
+    <li>
+        <H4>Empty Result (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.emptyresult(v=vs.100).aspx">MSDN</a>)</H4>
+        <p>
+            Represents a result that does nothing, an implementation of the null object pattern. Useful when you have a controller that peforms an async task.
+            <ul><li>@Html.ActionLink("Example", "Empty", "Simple")</li></ul>
+        </p>
+        
+    </li>
+    <li>
+        <H4>Content Result (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.contentresult(v=vs.100).aspx">MSDN</a>)</H4>
+        <p>
+            Returns user defined content. The user can specify the mimetype as well as a content string so different pages can be returned.
+            <ul>
+                <li>@Html.ActionLink("Example (HTML)", "Content", "Simple")  </li>
+                <li>@Html.ActionLink("Example (XML)", "ContentXml", "Simple")</li>
+            </ul>
+        </p>
+    </li>
+</ul>
+
+<h3>Http Actions</h3>
+<hr/>
+<ul>
+    <li>
+        <H4>HttpUnauthorizedResult (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.httpunauthorizedresult(v=vs.100).aspx">MSDN</a>)</H4>
+        <p>
+            Probably pretty self explanatory! Returns a 401 which is http unauthroized.
+            <ul><li>@Html.ActionLink("Example", "Unauthorized", "Simple")</li></ul>
+        </p>
+    </li>
+</ul>
+
+<h3>File Actions</h3>
+<hr/>
+<ul>
+    <li>
+        <H4>FileResult (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.fileresult(v=vs.100).aspx">FileResult</a>)</H4>
+        <p>Provides an action to return a file
+            
+            @Html.ActionLink("Example", "File", "Simple")
+
+        </p>
+    </li>
+</ul>
+<!--<h2>Custom Controller Actions</h2> -->
