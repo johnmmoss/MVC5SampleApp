@@ -1,27 +1,27 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 <h2>Controller Actions</h2>
 
-<br/>
+<br />
 
 <p>The base class for returned values is <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult(v=vs.118).aspx">ActionResult</a>. For MVC 5, it provides <strong>15</strong>  subclasses which provide specific actions for the controllers: </p>
 
 <h3>Simple Actions</h3>
-<hr/>
 <ul>
     <li>
-        <H4>Empty Result (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.emptyresult(v=vs.100).aspx">MSDN</a>)</H4>
+        <h4>Empty Result (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.emptyresult(v=vs.100).aspx">MSDN</a>)</h4>
         <p>
             Represents a result that does nothing, an implementation of the null object pattern. Useful when you have a controller that peforms an async task.
-            <ul><li>@Html.ActionLink("Example", "Empty", "Simple")</li></ul>
+            <ul>
+                <li>@Html.ActionLink("Example", "Empty", "Simple")</li>
+            </ul>
         </p>
-        
+
     </li>
     <li>
-        <H4>Content Result (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.contentresult(v=vs.100).aspx">MSDN</a>)</H4>
+        <h4>Content Result (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.contentresult(v=vs.100).aspx">MSDN</a>)</h4>
         <p>
             Returns user defined content. The user can specify the mimetype as well as a content string so different pages can be returned.
             <ul>
@@ -32,27 +32,58 @@
     </li>
 </ul>
 
-<h3>Http Actions</h3>
-<hr/>
+<h3>File Actions</h3>
+
+<p>The framework provides a base file action result class called <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.fileresult%28v=vs.118%29.aspx">FileResult</a>
+    This class provides the following 3 actions for returning files to the browser.
+</p>
+<p>
+    Its worth noting, that the <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.file%28v=vs.118%29.aspx">Controller.File</a> helper method on the controller class encapsualtes all methods for 
+    creating files, so you dont actually need to create the base action results.
+</p>
 <ul>
     <li>
-        <H4>HttpUnauthorizedResult (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.httpunauthorizedresult(v=vs.100).aspx">MSDN</a>)</H4>
+        <h4>FileContentResult (<a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.filecontentresult%28v=vs.118%29.aspx">MSDN</a>)</h4>
         <p>
-            Probably pretty self explanatory! Returns a 401 which is http unauthroized.
-            <ul><li>@Html.ActionLink("Example", "Unauthorized", "Simple")</li></ul>
+            Use this action when you want to return a file as a byte array. The byte array and mimetype are passed as parameters and
+            the download file path name can be set as a property.
+            <ul>
+                <li>@Html.ActionLink("Example", "Content", "File")</li>
+            </ul>
+        </p>
+    </li>
+    <li>
+        <h4>FilePathResult (<a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.filepathresult%28v=vs.118%29.aspx">MSDN</a>)</h4>
+        <p>
+            Use this action when want to return a file from disk. It takes a path as the parameter. The file path and mimetype are passed as parameters and
+            the download file path name can be set as a property.<br />
+            If you dont set the FileDownloadName property, then this file is displayed in the browser windows rather than downloaded.
+            <ul>
+                <li>@Html.ActionLink("Example", "Path", "File")</li>
+            </ul>
+        </p>
+    </li>
+    <li>
+        <h4>FileStreamResult (<a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.filestreamresult(v=vs.118).aspx">MSDN</a>)</h4>
+        <p>
+            The file stream result class can be used to return files to the client using a stream object. Once again, the stream
+            and the content type are parameters and the FileDownloadPath is a property which can be set.
+            <ul>
+                <li>@Html.ActionLink("Example", "Stream", "File")</li>
+            </ul>
         </p>
     </li>
 </ul>
 
-<h3>File Actions</h3>
-<hr/>
+<h3>Http Actions</h3>
 <ul>
     <li>
-        <H4>FileResult (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.fileresult(v=vs.100).aspx">FileResult</a>)</H4>
-        <p>Provides an action to return a file
-            
-            @Html.ActionLink("Example", "File", "Simple")
-
+        <h4>HttpUnauthorizedResult (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.httpunauthorizedresult(v=vs.100).aspx">MSDN</a>)</h4>
+        <p>
+            Probably pretty self explanatory! Returns a 401 which is http unauthroized.
+            <ul>
+                <li>@Html.ActionLink("Example", "Unauthorized", "Simple")</li>
+            </ul>
         </p>
     </li>
 </ul>
