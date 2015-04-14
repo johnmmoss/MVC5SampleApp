@@ -6,8 +6,27 @@
 
 <br />
 
-<p>The base class for returned values is <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult(v=vs.118).aspx">ActionResult</a>. For MVC 5, it provides <strong>15</strong>  subclasses which provide specific actions for the controllers: </p>
+<p>
+    The base class for returned values is <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult(v=vs.118).aspx">ActionResult</a>. For MVC 5, it provides <strong>15</strong>  subclasses which provide specific actions for the controllers.
+    
+</p>
 
+<script src="https://gist.github.com/johnmmoss/8c487b79974ee3dfbd3e.js"></script>
+
+<p>
+    Its usually a good idea to return ActionResult rather than one of the specialised classes, because you are likely to have several different types of return value
+    depending on the scenario. For example, if you are trying to update a value but that value does not exist, you will want to return a <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.httpnotfoundresult(v=vs.118).aspx">HttpNotFoundResult</a>, rather than a view.
+</p>
+
+<h3>Displaying Webpages</h3>
+<ul>
+    
+    <li>
+        <h4>View Result (<a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.viewresult(v=vs.118).aspx">MSDN</a>)</h4>
+        The main action used to display web pages is ViewResult. Typically you would use the <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.view%28v=vs.118%29.aspx">Controller.View</a>
+
+    </li>
+</ul>
 <h3>Simple Actions</h3>
 <ul>
     <li>
