@@ -1,0 +1,4 @@
+packages
+/GoogleTasks/Logs/*.log
+bin
+obj

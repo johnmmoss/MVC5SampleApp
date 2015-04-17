@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace MVC5SampleApp.Controllers
@@ -16,7 +13,7 @@ namespace MVC5SampleApp.Controllers
         }
 
         // You need to use the JsonRequestBahaviour swtich to avoid Json HiJacking http://haacked.com/archive/2009/06/25/json-hijacking.aspx/
-        public JsonResult Json()
+        public JsonResult JsonSample1()
         {
             var items = new List<MyJsonItem>()
                 {
@@ -28,6 +25,23 @@ namespace MVC5SampleApp.Controllers
             jsonResult.Data = items;
             jsonResult.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             return jsonResult;
+        }
+
+        public JsonResult JsonSample2()
+        {
+             var items = new List<MyJsonItem>()
+                {
+                    new MyJsonItem(1, "one", "This is number1"),
+                    new MyJsonItem(2, "two", "This is number2"),
+                    new MyJsonItem(3, "three", "This is number3")
+                };
+
+             return Json(items, JsonRequestBehavior.AllowGet);
+        }
+
+        public JavaScriptResult Sample1()
+        {
+            return JavaScript("<script>alert(1)</script>");
         }
 	}
 
