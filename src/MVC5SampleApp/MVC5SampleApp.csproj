@@ -112,6 +112,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HttpController.cs" />
     <Compile Include="Controllers\JavascriptController.cs" />
     <Compile Include="Controllers\SimpleController.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,6 +138,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\File\" />
+    <Folder Include="Views\Http\" />
     <Folder Include="Views\Javascript\" />
     <Folder Include="Views\Simple\" />
   </ItemGroup>
