@@ -55,8 +55,6 @@
 
 <p>The framework provides a base file action result class called <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.fileresult%28v=vs.118%29.aspx">FileResult</a>
     This class provides the following 3 actions for returning files to the browser.
-</p>
-<p>
     Its worth noting, that the <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.file%28v=vs.118%29.aspx">Controller.File</a> helper method on the controller class encapsualtes all methods for 
     creating files, so you dont actually need to create the base action results.
 </p>
@@ -96,6 +94,27 @@
 
 <h3>Http Actions</h3>
 <ul>
+    <li>
+        <h4>HttpStatusCodeResult (<a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.httpstatuscoderesult(v=vs.118).aspx">MSDN</a>)</h4>
+        <p>
+            HttpStatusCodeResult is a base class which can be used to return any status. The HttpStatusCode type can be used to strongly type the statuses
+            that are returned.
+        </p>
+        <ul>
+            <li>@Html.ActionLink("Example (Found)", "Found", "Http")</li>
+            <li>@Html.ActionLink("Example (Unavailable)", "Unavailable", "Http")</li>
+        </ul>
+    </li>
+    <li>
+        <h4>HttpNotFoundResult (<a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.httpnotfoundresult(v=vs.118).aspx">MSDN</a>)</h4>
+        <p>
+            HttpNotFoundResult is one of two specialized classes that can be used to represent a particular Http status. This method does have its 
+            own Controller helper method.
+        </p>
+        <ul>
+            <li>@Html.ActionLink("Example", "NotFound", "Http")</li>
+        </ul>
+    </li>
     <li>
         <h4>HttpUnauthorizedResult (<a href="https://msdn.microsoft.com/en-GB/library/system.web.mvc.httpunauthorizedresult(v=vs.100).aspx">MSDN</a>)</h4>
         <p>
