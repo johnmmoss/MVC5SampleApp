@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,11 +20,13 @@
                 </button>
 
                 @Html.ActionLink("ASP.NET MVC 5 Sample Site", "Index", "Home", null, new { @class = "navbar-brand" })
+                
             </div>
 
                  <div id="navbar" class="navbar-collapse collapse">
                      <ul class="nav navbar-nav navbar-right">
                          <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
+                         <li> @Html.ActionLink("Login", "Login", "Account") </li>
                      </ul>
                      </div>
                 
@@ -42,8 +45,8 @@
             <p>ASP.NET MVC 5 Sample Site &copy; @DateTime.Now.Year</p>
         </footer>
     </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+       @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
