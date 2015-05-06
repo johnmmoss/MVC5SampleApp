@@ -23,22 +23,29 @@
                 
             </div>
 
-                 <div id="navbar" class="navbar-collapse collapse">
-                     <ul class="nav navbar-nav navbar-right">
-                         <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
-                         <li> @Html.ActionLink("Login", "Login", "Account") </li>
-                     </ul>
-                     </div>
-                
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
+                         
+                    @if (!Request.IsAuthenticated)
+                    {
+                        <li> @Html.ActionLink("Login", "Login", "Account") </li>
+                    }
+                          
                 </ul>
             </div>
+               
         </div>
-
-
+        </div>
+    
+            
     <div class="container body-content">
+        <div>
+             @if (Request.IsAuthenticated)
+                {
+                    <div style="padding:10px; border-bottom:1px solid black;">Hi @User.Identity.Name, how are you today?</div>
+                }
+        </div>
         @RenderBody()
         <hr />
         <footer>
