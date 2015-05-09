@@ -195,6 +195,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505062000094_InitCreate.cs" />
+    <Compile Include="Migrations\201505062000094_InitCreate.Designer.cs">
+      <DependentUpon>201505062000094_InitCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FeedbackModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -239,6 +244,11 @@
     <Folder Include="Views\Http\" />
     <Folder Include="Views\Javascript\" />
     <Folder Include="Views\Simple\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505062000094_InitCreate.resx">
+      <DependentUpon>201505062000094_InitCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
