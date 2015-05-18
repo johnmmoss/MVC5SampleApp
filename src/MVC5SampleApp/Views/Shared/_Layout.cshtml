@@ -20,32 +20,28 @@
                 </button>
 
                 @Html.ActionLink("ASP.NET MVC 5 Sample Site", "Index", "Home", null, new { @class = "navbar-brand" })
-                
             </div>
-
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
-                         
-                    @if (!Request.IsAuthenticated)
-                    {
-                        <li> @Html.ActionLink("Login", "Login", "Account") </li>
-                    }
-                          
-                </ul>
+            
+            <!-- Unsecured links -->
+        <div class="navbar-collapse collapse">
+                   
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Unsecured", "", "")</li>
+                            @if (Request.IsAuthenticated) { 
+                                <li>@Html.ActionLink("Secured", "", "")</li>
+                                
+                                
+                            }
+                            </ul>
+                    @Html.Partial("_LoginPartial")
+                  
+                    
             </div>
-               
         </div>
         </div>
     
             
     <div class="container body-content">
-        <div>
-             @if (Request.IsAuthenticated)
-                {
-                    <div style="padding:10px; border-bottom:1px solid black;">Hi @User.Identity.Name, how are you today?</div>
-                }
-        </div>
         @RenderBody()
         <hr />
         <footer>
