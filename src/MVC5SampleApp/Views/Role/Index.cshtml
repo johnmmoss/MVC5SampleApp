@@ -1,7 +1,59 @@
-﻿
+﻿@model List<MVC5SampleApp.Models.RoleModel>
 @{
     ViewBag.Title = "Manage Roles";
 }
 
 <h2>Manage Roles</h2>
+
+
+
+<div class="well">
+    <div class="text-center">
+
+    @using (Html.BeginForm("Create", "Role", FormMethod.Post, new { @class = "form-inline" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="RoleName">Add new role</label>
+            @Html.TextBox("RoleName", null,  new { @class = "form-control", placeholder="name", max=200, style="width:400px;" }) 
+          </div>
+          <button type="submit" class="btn btn-default">Add Role</button>
+        </form>
+    }
+    </div>
+</div>
+
+
+@if (Model.Any())
+{
+<div class="row">
+<table class="table table-striped">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var roleModel in Model)
+    {
+        <tr>
+            <td>@roleModel.Name</td>
+            <td></td>
+
+        </tr>
+    }
+        
+</table>
+</div>
+    }
+else
+{
+    <p>There are no roles in the system</p>
+}
+
 
