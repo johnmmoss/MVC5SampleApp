@@ -18,18 +18,14 @@ namespace MVC5SampleApp.Controllers
             {
                 var roles = context.Roles.ToList();
 
-                foreach (var role in roles)
-                {
-                    roleModels.Add(
-                        new RoleModel()
-                            {
-                                Id = role.Id,
-                                Name = role.Name
-                            });
-                }
+                roleModels.AddRange(
+                    roles.Select(role => new RoleModel()
+                    {
+                        Id = role.Id, Name = role.Name
+                    }));
             }
 
-            return View(roleModels);
+            return View(roleModels.OrderBy(x => x.Name).ToList());
         }
 
         [HttpPost]
