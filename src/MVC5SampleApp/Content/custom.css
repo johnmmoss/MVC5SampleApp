@@ -8,3 +8,12 @@
 .wide-tbx {
     width: 2000px;
 }
+
+tr {
+    /* todo convert to less file??*/
+    border-bottom: 1px solid #ecf0f1;
+}
+
+th {
+    /*background-color: #ecf0f1;*/
+}
