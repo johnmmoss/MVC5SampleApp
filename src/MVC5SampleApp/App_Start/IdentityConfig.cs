@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using MVC5SampleApp.Domain;
 using MVC5SampleApp.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;

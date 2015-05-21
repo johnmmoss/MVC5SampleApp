@@ -207,7 +207,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FeedbackModel.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -259,6 +258,12 @@
     <EmbeddedResource Include="Migrations\201505062000094_InitCreate.resx">
       <DependentUpon>201505062000094_InitCreate.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVC5SampleApp.Domain\MVC5SampleApp.Domain.csproj">
+      <Project>{bf52b7b8-7332-4a05-92db-ed233a10d007}</Project>
+      <Name>MVC5SampleApp.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
