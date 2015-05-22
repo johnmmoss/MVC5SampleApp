@@ -32,14 +32,14 @@ namespace MVC5SampleApp.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            if (string.IsNullOrEmpty(collection["RoleName"]))
+            if (string.IsNullOrEmpty(collection["roleName"]))
             {
                 return RedirectToAction("Index");
             }
             try
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = collection["RoleName"];
+                role.Name = collection["roleName"];
                 
                 using (var context = ApplicationDbContext.Create())
                 {
@@ -55,6 +55,17 @@ namespace MVC5SampleApp.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+
+        public ActionResult Delete(string roleName)
+        {
+            using (var context = ApplicationDbContext.Create())
+            {
+                var thisRole = context.Roles.FirstOrDefault(r => r.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase));
+                context.Roles.Remove(thisRole);
+                context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
 	}
 }
