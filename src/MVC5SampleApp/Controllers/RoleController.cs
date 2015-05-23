@@ -30,6 +30,7 @@ namespace MVC5SampleApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(FormCollection collection)
         {
             if (string.IsNullOrEmpty(collection["roleName"]))
@@ -57,11 +58,22 @@ namespace MVC5SampleApp.Controllers
             }
         }
 
-        public ActionResult Delete(string roleName)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(FormCollection collection)
         {
+            var roleId = collection["roleId"];
+            if (string.IsNullOrEmpty(roleId))
+            {
+                return RedirectToAction("Index");
+            }
             using (var context = ApplicationDbContext.Create())
             {
-                var thisRole = context.Roles.FirstOrDefault(r => r.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase));
+                var thisRole = context.Roles.FirstOrDefault(r => r.Id.Equals(roleId, StringComparison.CurrentCultureIgnoreCase));
+                if (thisRole == null)
+                {
+                    return RedirectToAction("Index");
+                }
                 context.Roles.Remove(thisRole);
                 context.SaveChanges();
             }

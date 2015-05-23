@@ -23,6 +23,9 @@ namespace MVC5SampleApp
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/role-management").Include(
+                      "~/Scripts/custom.role.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/custom.css",
