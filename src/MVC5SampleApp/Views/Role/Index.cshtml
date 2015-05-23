@@ -1,5 +1,4 @@
-﻿@using System.Web.Optimization
-@model List<MVC5SampleApp.Models.RoleModel>
+﻿@model List<MVC5SampleApp.Models.RoleModel>
 @{
     ViewBag.Title = "Manage Roles";
 }
@@ -28,7 +27,6 @@
             </div>
         </div>
 
-
         @if (Model.Any())
         {
             
@@ -49,7 +47,7 @@
                     <tr>
                         <td id="@roleModel.Id-name">@roleModel.Name</td>
                         <td>
-                            <div class="text-right">
+                            <div class="text-right" style="padding-right:13px;">
                                        
                                     <button type="button" id="@roleModel.Id" class="btn btn-default btn-xs role-del" aria-label="Left Align" data-toggle="tooltip" data-placement="right" title="delete">
                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 

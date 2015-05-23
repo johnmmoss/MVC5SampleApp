@@ -14,7 +14,7 @@ tr {
     border-bottom: 1px solid #ecf0f1;
 }
 
-/** To stop the sliding in of the modal popups*/
+/** To stop the sliding in of the modal popups **/
 .modal.fade .modal-dialog {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);

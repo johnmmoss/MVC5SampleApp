@@ -10,8 +10,6 @@ namespace MVC5SampleApp.Controllers
 {
     public class RoleController : Controller
     {
-        //
-        // GET: /Role/
         public ActionResult Index()
         {
             var roleModels = new List<RoleModel>();

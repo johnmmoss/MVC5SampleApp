@@ -209,6 +209,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FeedbackModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
