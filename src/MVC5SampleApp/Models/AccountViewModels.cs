@@ -68,6 +68,14 @@ namespace MVC5SampleApp.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(120, ErrorMessage = "The {0} must be at least {2} characters long.")]
+        public string Firstname { get; set; }
+        
+        [Required]
+        [StringLength(120, ErrorMessage = "The {0} must be at least {2} characters long.")]
+        public string Surname { get; set; }
     }
 
     public class ResetPasswordViewModel

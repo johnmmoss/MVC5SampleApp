@@ -13,6 +13,12 @@
             <table class="table table-striped">
                 <tr>
                     <th>
+                        First Name
+                    </th>
+                     <th>
+                        Surname
+                    </th>
+                    <th>
                         Email
                     </th>
                     <th class="text-center">
@@ -28,6 +34,8 @@
                 @foreach (var userModel in Model)
                 {
                     <tr>
+                        <td>@userModel.Firstname</td>
+                        <td>@userModel.Surname</td>
                         <td id="@userModel.Id-name">@userModel.Email</td>
                         <td class="text-center">
                              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 

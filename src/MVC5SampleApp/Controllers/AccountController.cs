@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Data.Entity.Validation;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MVC5SampleApp.Domain;
@@ -85,8 +87,27 @@ namespace MVC5SampleApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                var user = new ApplicationUser()
+                    {
+                        UserName = model.Email, 
+                        Email = model.Email,
+                        FirstName = model.Firstname,
+                        Surname =  model.Surname
+                    };
+                
+                IdentityResult result= IdentityResult.Failed();
+                try
+                {
+                    result = await UserManager.CreateAsync(user, model.Password);
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var dbEntityValidationResult in  ex.EntityValidationErrors)
+                    {
+                        foreach(var error in dbEntityValidationResult.ValidationErrors)
+                        ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                    }
+                }
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);

@@ -23,6 +23,8 @@ namespace MVC5SampleApp.Controllers
                     {
                         Id = user.Id,
                         Email = user.Email,
+                        Firstname = user.FirstName,
+                        Surname = user.Surname,
                         AccountIsLocked = user.LockoutEnabled,
                         AccountIsTwoFactorEnabled = user.TwoFactorEnabled
                     }));
