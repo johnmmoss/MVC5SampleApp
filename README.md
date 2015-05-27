@@ -5,6 +5,10 @@ Deployed to Appharbour at  [mvcsampleapp.apphb.com](http://mvcsampleapp.apphb.co
 
 Added in ASP.NET Identity following [Develop MVC 5 with ASP.NET Identity in Visual Studio 2012](http://httpjunkie.com/2013/340/develop-mvc-5-with-asp-net-identity-in-visual-studio-2012/) blog post
 
+## Microsoft Identity Framework
+* [Overview (Type Cast Exception blog)] (http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx)
+* [Understanding the basics (CodeProject)] (http://www.codeproject.com/Articles/762428/ASP-NET-MVC-and-Identity-Understanding-the-Basics)
+
 ## References (MSDN)
 
 * [ASP.NET MVC Overview](https://msdn.microsoft.com/en-GB/library/dd381412(v=vs.100).aspx)
