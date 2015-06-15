@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201505261634092_AddForenameSurnameProperties.Designer.cs">
       <DependentUpon>201505261634092_AddForenameSurnameProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506151919282_AddNoticeEntity.cs" />
+    <Compile Include="Migrations\201506151919282_AddNoticeEntity.Designer.cs">
+      <DependentUpon>201506151919282_AddNoticeEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FeedbackModel.cs" />
@@ -266,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505261634092_AddForenameSurnameProperties.resx">
       <DependentUpon>201505261634092_AddForenameSurnameProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506151919282_AddNoticeEntity.resx">
+      <DependentUpon>201506151919282_AddNoticeEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

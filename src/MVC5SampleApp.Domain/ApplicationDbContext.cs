@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,8 @@ namespace MVC5SampleApp.Domain
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public  IDbSet<Notice> Notices { get; set; }
+    
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
