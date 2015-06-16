@@ -1,7 +1,85 @@
-﻿
+﻿@model List<MVC5SampleApp.Domain.Notice>
 @{
     ViewBag.Title = "Manage Notices";
 }
 
-<h2>Manage Notices</h2>
+
+<div class="row">
+
+    <div class="col-md-6 col-lg-offset-3">
+        <h2>Manage Notices</h2>
+
+        @if (Model.Any())
+        {
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                               
+                    <th>
+                        <div class="text-right">
+                            Actions
+                        </div>
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td id="@item.Id-name">@item.Title</td>
+                        <td>
+                            <div class="text-right" style="padding-right:13px;">
+                                       
+                                    <button type="button" class="btn btn-default btn-xs role-del" aria-label="Left Align" data-toggle="tooltip" data-placement="right" title="delete">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+                                    </button>
+                                
+                            </div>
+                            
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>There are no notices in the system</p>
+        }
+        
+         @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-default"})
+    </div>
+</div>
+
+
+@using (Html.BeginForm("Delete", "Role", FormMethod.Post, new {@class = "form-inline"}))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" id="roleId"  name="roleId" value="1"/>
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Delete Role </h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete role <strong><span id="modal-name"></span></strong>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-warning">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <script src="~/Scripts/custom.role.js"></script>
+}
+
+
 

@@ -5,6 +5,7 @@ namespace MVC5SampleApp.Domain
 {
     public class Notice
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
