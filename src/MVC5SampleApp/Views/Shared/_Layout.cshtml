@@ -11,6 +11,13 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
+
+
+    @{
+                    //ViewBag.IsAdmin = true;
+                    // @(ViewBag.IsAdmin ? "class=\"active\"" : string.Empty)
+    }
+
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -33,21 +40,25 @@
 
                     @if (Request.IsAuthenticated)
                     { 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
-                           <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Users", "Index", "User")</li>
-                            <li>@Html.ActionLink("Roles", "Index", "Role")</li>
-                            <li>@Html.ActionLink("Notices", "Index", "Notice")</li>
-                        </ul>
-                    </li>
+                        <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
                     }
                 </ul>
             </div>
-                @Html.Partial("_LoginPartial")
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
+    <div class="submenu">
+        <div class="container ">
+            <div class="row ">
+                <div>
+                   
+                    
+                    @RenderSection("submenu", false)
 
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />

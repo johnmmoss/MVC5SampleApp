@@ -1,22 +1,21 @@
 ﻿@model List<MVC5SampleApp.Domain.Notice>
 @{
     ViewBag.Title = "Manage Notices";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-
+<h2>Manage Notices</h2>
+<hr />
 <div class="row">
-
     <div class="col-md-6 col-lg-offset-3">
-        <h2>Manage Notices</h2>
 
         @if (Model.Any())
         {
             <table class="table table-striped">
                 <tr>
-                    <th>
-                        Title
+                    <th>Title
                     </th>
-                               
+
                     <th>
                         <div class="text-right">
                             Actions
@@ -29,14 +28,14 @@
                     <tr>
                         <td id="@item.Id-name">@item.Title</td>
                         <td>
-                            <div class="text-right" style="padding-right:13px;">
-                                       
-                                    <button type="button" class="btn btn-default btn-xs role-del" aria-label="Left Align" data-toggle="tooltip" data-placement="right" title="delete">
-                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
-                                    </button>
-                                
+                            <div class="text-right" style="padding-right: 13px;">
+
+                                <button type="button" class="btn btn-default btn-xs role-del" aria-label="Left Align" data-toggle="tooltip" data-placement="right" title="delete">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+
                             </div>
-                            
+
                         </td>
                     </tr>
                 }
@@ -46,16 +45,16 @@
         {
             <p>There are no notices in the system</p>
         }
-        
-         @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-default"})
+
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
     </div>
 </div>
 
 
-@using (Html.BeginForm("Delete", "Role", FormMethod.Post, new {@class = "form-inline"}))
+@using (Html.BeginForm("Delete", "Role", FormMethod.Post, new { @class = "form-inline" }))
 {
     @Html.AntiForgeryToken()
-    <input type="hidden" id="roleId"  name="roleId" value="1"/>
+    <input type="hidden" id="roleId" name="roleId" value="1" />
     
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

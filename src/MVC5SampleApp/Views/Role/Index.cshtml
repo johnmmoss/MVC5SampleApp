@@ -1,14 +1,13 @@
 ﻿@model List<MVC5SampleApp.Models.RoleModel>
 @{
     ViewBag.Title = "Manage Roles";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-
+<h2>Manage Roles</h2>
+<hr />
 <div class="row">
-
     <div class="col-md-6 col-lg-offset-3">
-        <h2>Manage Roles</h2>
-
         <div class="well">
             <div class="text-center">
 
@@ -34,7 +33,7 @@
                 <tr>
                     <th>Name
                     </th>
-                               
+
                     <th>
                         <div class="text-right">
                             Actions
@@ -47,14 +46,14 @@
                     <tr>
                         <td id="@roleModel.Id-name">@roleModel.Name</td>
                         <td>
-                            <div class="text-right" style="padding-right:13px;">
-                                       
-                                    <button type="button" id="@roleModel.Id" class="btn btn-default btn-xs role-del" aria-label="Left Align" data-toggle="tooltip" data-placement="right" title="delete">
-                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
-                                    </button>
-                                
+                            <div class="text-right" style="padding-right: 13px;">
+
+                                <button type="button" id="@roleModel.Id" class="btn btn-default btn-xs role-del" aria-label="Left Align" data-toggle="tooltip" data-placement="right" title="delete">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button>
+
                             </div>
-                            
+
                         </td>
                     </tr>
                 }
@@ -68,10 +67,10 @@
 </div>
 
 
-@using (Html.BeginForm("Delete", "Role", FormMethod.Post, new {@class = "form-inline"}))
+@using (Html.BeginForm("Delete", "Role", FormMethod.Post, new { @class = "form-inline" }))
 {
     @Html.AntiForgeryToken()
-    <input type="hidden" id="roleId"  name="roleId" value="1"/>
+    <input type="hidden" id="roleId" name="roleId" value="1" />
     
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

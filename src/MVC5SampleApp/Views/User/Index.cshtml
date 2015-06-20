@@ -1,29 +1,25 @@
 ﻿@model List<MVC5SampleApp.Models.UserModel>
 @{
     ViewBag.Title = "Manage Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<h2>Manage Users</h2>
+<hr />
 <div class="row">
-
     <div class="col-md-8 col-lg-offset-2">
-        <h2>Manage Users</h2>
-
         @if (Model.Any())
         {
             <table class="table table-striped">
                 <tr>
-                    <th>
-                        First Name
+                    <th>First Name
                     </th>
-                     <th>
-                        Surname
+                    <th>Surname
                     </th>
-                    <th>
-                        Email
+                    <th>Email
                     </th>
-                    <th class="text-center">
-                        Locked
-                    </th>    
+                    <th class="text-center">Locked
+                    </th>
                     <th>
                         <div class="text-right">
                             Actions
@@ -38,20 +34,20 @@
                         <td>@userModel.Surname</td>
                         <td id="@userModel.Id-name">@userModel.Email</td>
                         <td class="text-center">
-                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </td>
                         <td>
                             <div class="text-right" style="padding-right: 13px;">
-                            @if (!userModel.IsCurrentUser)
-                            {
-                                <button type="button" id="@userModel.Id" class="btn btn-default btn-xs user-del" aria-label="Left Align" data-toggle="tooltip" data-placement="right" title="delete">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
-                                </button>
-                            }
-                            else
-                            {
-                                <span style="padding-right:10px;">-</span>
-                            }
+                                @if (!userModel.IsCurrentUser)
+                                {
+                                    <button type="button" id="@userModel.Id" class="btn btn-default btn-xs user-del" aria-label="Left Align" data-toggle="tooltip" data-placement="right" title="delete">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <span style="padding-right: 10px;">-</span>
+                                }
                             </div>
                         </td>
                     </tr>
@@ -65,10 +61,10 @@
     </div>
 </div>
 
-@using (Html.BeginForm("Delete", "User", FormMethod.Post, new {@class = "form-inline"}))
+@using (Html.BeginForm("Delete", "User", FormMethod.Post, new { @class = "form-inline" }))
 {
     @Html.AntiForgeryToken()
-    <input type="hidden" id="userId"  name="userId" value="1"/>
+    <input type="hidden" id="userId" name="userId" value="1" />
     
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -92,23 +88,23 @@
 @section scripts
 {
     <script type="text/javascript">
-    $(document).ready(function () {
-        //$('#RoleName').focus();
-        $('[data-toggle="tooltip"]').tooltip();
-        $('.user-del').click(function () {
+        $(document).ready(function () {
+            //$('#RoleName').focus();
+            $('[data-toggle="tooltip"]').tooltip();
+            $('.user-del').click(function () {
 
-            var id = $(this).attr('id');
-            var name = $('#' + id + '-name').text();
+                var id = $(this).attr('id');
+                var name = $('#' + id + '-name').text();
 
-            showModal(id, name);
+                showModal(id, name);
+            });
+
+            function showModal(id, name) {
+
+                $('#modal-name').text(' ' + name);
+                $('#myModal').modal('show');
+                $('#userId').val(id);
+            }
         });
-        
-        function showModal(id, name) {
-
-            $('#modal-name').text(' ' + name);
-            $('#myModal').modal('show');
-            $('#userId').val(id);
-        }
-    });
     </script>
 }

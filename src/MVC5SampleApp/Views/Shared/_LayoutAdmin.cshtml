@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Manage Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section submenu
+{
+    <div class="navbar-brand">Admininistration</div>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Users", "Index", "User")</li>
+            <li>@Html.ActionLink("Roles", "Index", "Role")</li>
+            <li>@Html.ActionLink("Notices", "Index", "Notice")</li>
+        </ul>
+}
+
+@RenderBody()
+
+@section scripts
+{
+    @RenderSection("scripts", required: false)
+}

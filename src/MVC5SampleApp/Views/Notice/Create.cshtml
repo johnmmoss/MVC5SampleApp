@@ -1,14 +1,13 @@
 ﻿@model MVC5SampleApp.Domain.Notice
 @{
     ViewBag.Title = "Manage Notices";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<h2>Add Notice</h2>
+<hr/>
 <div class="row">
-
     <div class="col-md-6 col-lg-offset-3">
-        <h2>Add Notice</h2>
-
-
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()

@@ -1,10 +1,10 @@
 ﻿
-
+/**
     h2 
     {
         padding-top: 20px;padding-bottom: 20px; margin-bottom: 40px;
     }
-
+*/
 .wide-tbx {
     width: 2000px;
 }
@@ -19,4 +19,15 @@ tr {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
+}
+
+
+.breadcrumb {
+    background-color: white; /*#ecf0f1*/
+}
+
+.submenu {
+    padding-top: 4px;
+    background-color: #ecf0f1;
+    margin-bottom: 30px;
 }
