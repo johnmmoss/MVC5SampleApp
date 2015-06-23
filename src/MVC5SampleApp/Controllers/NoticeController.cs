@@ -46,7 +46,7 @@ namespace MVC5SampleApp.Controllers
                 }
                 // TODO: Add insert logic here
 
-                return Create(notice);
+                return View(notice);
             }
             catch
             {
