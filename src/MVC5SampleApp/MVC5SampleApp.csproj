@@ -159,6 +159,14 @@
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Icon.png" />
+    <Content Include="images\Image1.jpg" />
+    <Content Include="images\Image1_small.jpg" />
+    <Content Include="images\Image2.jpg" />
+    <Content Include="images\Image3.jpg" />
+    <Content Include="images\Image3_small.jpg" />
+    <Content Include="images\Image4.jpg" />
+    <Content Include="images\Image5.jpg" />
+    <Content Include="images\Image6.jpg" />
     <Content Include="SampleFile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -167,6 +175,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-cycle2.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -195,6 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HttpController.cs" />
     <Compile Include="Controllers\JavascriptController.cs" />
+    <Compile Include="Controllers\JQueryImageController.cs" />
     <Compile Include="Controllers\NoticeController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SimpleController.cs" />
@@ -255,6 +265,8 @@
     <Content Include="Views\Notice\Create.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\JQueryImage\Index.cshtml" />
+    <Content Include="Views\JQueryImage\Slideshow.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Slideshow";
+}
+
+
+
+
+@section scripts
+{
+    <script type="text/javascript" language="javascript" src="~/Scripts/jquery-cycle2.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(function() {
+            $('.slideshow1').cycle({ fx: 'scrollHorz' });
+        });
+        
+        $(function () {
+            $('.slideshow2').cycle({ fx: 'flipHorz' });
+        });
+    </script>
+    
+    <style>
+        /* pager styles from: http://malsup.com/jquery/cycle2/demo/demo-slideshow.css */
+        .cycle-pager { 
+            text-align: center; width: 400px; z-index: 500; position: absolute; top: -10px; overflow: hidden;
+        }
+        .cycle-pager span { 
+            font-family: arial; font-size: 50px; width: 16px; height: 16px; 
+            display: inline-block; color: #ddd; cursor: pointer; 
+        }
+        .cycle-pager span.cycle-pager-active { color: #D69746;}
+        .cycle-pager > * { cursor: pointer;}
+
+        /* caption overlay styles */
+        .cycle-overlay { 
+            font-family: tahoma, arial;
+            position: absolute; bottom: 0; width: 400px; z-index: 600;
+            background: black; color: white; padding: 15px; opacity: .5;
+        }
+    </style>
+}
+
+<h2>Slideshow Control</h2>
+
+<script src="~/Scripts/jquery-cycle2.js"></script>
+
+<p>
+    This page demos a jquery slideshow plugin called <a href="http://malsup.com/jquery/cycle2/">cycle2</a> by <a href="http://malsup.com">malsup.com</a>
+</p>
+
+
+<p>
+    The is a rich <a href="http://malsup.com/jquery/cycle2/api/">api</a> for controlling things like the fade style, the slide time, adding captions, paging and nav buttons.
+    Check out the <a href="http://malsup.com/jquery/cycle2/demo/">demos</a> page for more help on how it can be used.
+</p>
+
+<div class="slideshow1" >
+    
+    <img src="~/images/Image1.jpg" width="400" height="300"/>
+    <img src="~/images/Image2.jpg" width="300" height="400"/>
+    <img src="~/images/Image3.jpg" width="400" height="300"/>
+    <img src="~/images/Image4.jpg" width="300" height="400"/>
+    <img src="~/images/Image5.jpg" width="400" height="300"/>
+
+</div>
+<h2>Advanced example</h2>
+<p>
+    In this example we make use of the following features to make a more advanced control:
+    
+    <ol>
+        
+        <li> An <a href="http://malsup.com/jquery/cycle2/demo/overlay.php">overlay</a> showing as a opaque black background</li>
+        <li> A <a href="http://malsup.com/jquery/cycle2/demo/pager.php">pager</a> showing as a series of dots</li>
+        <li>The <a href="http://malsup.com/jquery/cycle2/demo/flip.php">flip</a> transition</li>
+    </ol>
+   
+    The styleing is not part of the plugin, but the you can include from the demos stylesheet: <a href="http://malsup.com/jquery/cycle2/demo/demo-slideshow.css">demo-slideshow.css</a> from the cycle2 website.
+</p>
+<div class="slideshow2" >
+    <div class="cycle-pager"></div>
+    <div class="cycle-overlay"></div>
+    <img src="~/images/Image1.jpg" data-cycle-title="Iron Man Nice 2015"  data-cycle-desc="The chilling the day before" width="400" height="300"/>
+    <img src="~/images/Image3.jpg" data-cycle-title="Iron Man Nice 2015"  data-cycle-desc="The race begins" width="400" height="300"/>
+    <img src="~/images/Image5.jpg" data-cycle-title="Iron Man Nice 2015"  data-cycle-desc="Finished in under 15 hours" width="400" height="300"/>
+</div>
