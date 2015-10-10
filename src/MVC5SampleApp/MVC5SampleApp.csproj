@@ -160,10 +160,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="images\Image1.jpg" />
-    <Content Include="images\Image1_small.jpg" />
     <Content Include="images\Image2.jpg" />
     <Content Include="images\Image3.jpg" />
-    <Content Include="images\Image3_small.jpg" />
     <Content Include="images\Image4.jpg" />
     <Content Include="images\Image5.jpg" />
     <Content Include="images\Image6.jpg" />
