@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Zoom";
+}
+
+
+
+ <link href="~/Content/jquery.jqzoom.css" rel="stylesheet" />
+
+<h2>Zoom</h2>
+
+
+
+@section scripts {
+    
+    <script src="~/Scripts/jquery-migrate-1.2.1.js"></script>
+    <script src="~/Scripts/jquery.jqzoom-core-pack.js"></script>
+    
+    <script type="text/javascript" language="javascript">
+        $(function() {
+            $(".jqzoom").jqzoom({ zoomWidth: 400 });
+        });
+    </script>
+
+}
+
+<p>
+    The JQuery Zoom plugin (jqzoom) provides a clever zoom functionality... the sort of thing you see on most websites selling stuff.
+    <br />Note that the:
+    
+    <ul>
+        <li>You need to provide the Zoomed in image as well as the smaller image thats displayed</li>
+        <li>You need to use the <a href="http://blog.jquery.com/2013/05/08/jquery-migrate-1-2-1-released/">JQuery Migrate plugin</a></li>
+        <li>The plugin is distrubted with some styles that give a good base look and feel.</li>
+    </ul>
+    The website seems to be gone, but there are plenty of mirriors available like <a href="http://jquery-plugins.net/jqzoom"/>jquery-plugins.net</a>
+</p>
+<p>&nbsp;</p>
+<a href="~/images/Image3_large.jpg" class="jqzoom" title="And they're off...">
+    <img src="~/images/Image3.jpg" title="And they're off" style="border:1px solid #666" width="400" height="300"/>
+</a>
+
+<!-- move the footer down -->
+<div style="clear:both;"></div>

@@ -148,6 +148,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
+    <Content Include="Content\jquery.jqzoom.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -162,6 +163,7 @@
     <Content Include="images\Image1.jpg" />
     <Content Include="images\Image2.jpg" />
     <Content Include="images\Image3.jpg" />
+    <Content Include="images\Image3_large.jpg" />
     <Content Include="images\Image4.jpg" />
     <Content Include="images\Image5.jpg" />
     <Content Include="images\Image6.jpg" />
@@ -174,6 +176,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-cycle2.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery.jqzoom-core-pack.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -265,6 +269,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\JQueryImage\Index.cshtml" />
     <Content Include="Views\JQueryImage\Slideshow.cshtml" />
+    <Content Include="Views\JQueryImage\Zoom.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
