@@ -1720,8 +1720,10 @@
                     suggestions = suggestions || [];
                     if (!canceled && rendered < that.limit) {
                         that.cancel = $.noop;
-                        rendered += suggestions.length;
-                        that._append(query, suggestions.slice(0, that.limit - rendered));
+                        // Updated for #1218: https://github.com/twitter/typeahead.js/issues/1218
+                        suggestions = (suggestions || []).slice(0, that.limit);
+                        rendered = suggestions.length;
+                        that._append(query, suggestions);
                         that.async && that.trigger("asyncReceived", query);
                     }
                 }
