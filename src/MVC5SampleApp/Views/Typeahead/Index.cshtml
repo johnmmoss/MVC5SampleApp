@@ -126,7 +126,7 @@
             queryTokenizer: Bloodhound.tokenizers.whitespace,            
             remote:
             {
-                url: 'http://localhost/MVC5SampleApp/Typeahead/states?q=%QUERY',
+                url: baseUrl + '?q=%QUERY',
                 wildcard: '%QUERY',
             }
         });
