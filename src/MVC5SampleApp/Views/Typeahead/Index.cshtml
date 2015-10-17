@@ -6,7 +6,6 @@
 
 
 <style>
-
     /** Copied styles from: http://stackoverflow.com/questions/20198247/twitters-typeahead-js-suggestions-are-not-styled-have-no-border-transparent-b */
 
     .tt-query, /* UPDATE: newer versions use tt-input instead of tt-query */
@@ -47,71 +46,104 @@
     }
 
     .typeahead {
-            position: relative;
-    vertical-align: top;
-    background-color: transparent;
-            width: 396px;
-    height: 30px;
-    padding: 8px 12px;
-    font-size: 24px;
-    line-height: 30px;
-    border: 2px solid #ccc;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    outline: none;
+        position: relative;
+        vertical-align: top;
+        background-color: transparent;
+        width: 396px;
+        height: 30px;
+        padding: 8px 12px;
+        font-size: 24px;
+        line-height: 30px;
+        border: 2px solid #ccc;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        outline: none;
         padding: 10px;
         color: #999;
     }
-    </style>
+</style>
 @section scripts
 {
     
-    <script src="~/Scripts/typeahead.bundle.min.js"></script>
-    <script src="~/Scripts/typeahead.jquery.min.js"></script>
+    <script src="~/Scripts/typeahead.bundle.js"></script>
     <script>
-    var substringMatcher = function(strs) {
-      return function findMatches(q, cb) {
-        var matches, substringRegex;
+        //
+        // The basic 
+        //  
+        var baseUrl = '@System.Configuration.ConfigurationManager.AppSettings["StatesApiUrl"]';
+        //
+        // The Basic Example from http://twitter.github.io/typeahead.js/examples/
+        //
+        var substringMatcher = function (strs) {
+            return function findMatches(q, cb) {
+                var matches, substringRegex;
 
-        // an array that will be populated with substring matches
-        matches = [];
+                // an array that will be populated with substring matches
+                matches = [];
 
-        // regex used to determine if a string contains the substring `q`
-        substrRegex = new RegExp(q, 'i');
+                // regex used to determine if a string contains the substring `q`
+                substrRegex = new RegExp(q, 'i');
 
-        // iterate through the pool of strings and for any string that
-        // contains the substring `q`, add it to the `matches` array
-        $.each(strs, function(i, str) {
-          if (substrRegex.test(str)) {
-            matches.push(str);
-          }
+                // iterate through the pool of strings and for any string that
+                // contains the substring `q`, add it to the `matches` array
+                $.each(strs, function (i, str) {
+                    if (substrRegex.test(str)) {
+                        matches.push(str);
+                    }
+                });
+
+                cb(matches);
+            };
+        };
+
+        var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+            'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+            'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+            'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+            'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+            'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+            'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+            'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+            'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+        ];
+
+        $('#the-basics .typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+            {
+                name: 'states',
+                source: substringMatcher(states)
+            });
+
+        //
+        // Blood hound example
+        //
+        var bloodhound = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,            
+            remote:
+            {
+                url: 'http://localhost/MVC5SampleApp/Typeahead/states?q=%QUERY',
+                wildcard: '%QUERY',
+            }
         });
 
-        cb(matches);
-      };
-    };
+        bloodhound.initialize();
 
-    var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-      'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-      'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-      'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-      'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-      'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-      'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-      'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-      'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-    ];
+        $('#bloodhound .typeahead').typeahead({
+                hint: true,
+                highlight: true,
+            },
+            {
+                name: 'states2',
+                displaykey: 'state',
+                source: bloodhound.ttAdapter()
+            
+            });
 
-    $('#the-basics .typeahead').typeahead({
-      hint: true,
-      highlight: true,
-      minLength: 1
-    },
-    {
-      name: 'states',
-      source: substringMatcher(states)
-    });
     </script>
 }
 
@@ -119,7 +151,7 @@
     Twitter's <a href="https://twitter.github.io/typeahead.js/">typeahead</a> library is one of the most popular auto suggest librarys on the web
     
     <ol>
-        <li>There is a <a href="https://twitter.github.io/typeahead.js/"> great demo</a>where you can search for twiter uses</li>
+        <li>There is a <a href="https://twitter.github.io/typeahead.js/">great demo</a>where you can search for twiter uses</li>
         <li>The <a href="https://twitter.github.io/typeahead.js/examples/">examples page</a> has some good examples of how to use</li>
         <li><a href="https://github.com/twitter/typeahead.js/blob/master/doc/bloodhound.md">Bloodhound</a> is the suggestion engine used by typeahead </li>
     </ol>
@@ -130,4 +162,10 @@
 <p>The example straight off the examples page is to filter american states!</p>
 <div id="the-basics">
     <input class="typeahead" type="text" placeholder="States of USA">
+</div>
+
+
+<h2>Bloodhound</h2>
+<div id="bloodhound">
+    <input id="tbx2" class="typeahead" type="text" placeholder="States of USA">
 </div>
